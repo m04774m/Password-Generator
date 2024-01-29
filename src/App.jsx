@@ -27,15 +27,19 @@ function App() {
 
   const copyToClipboard= useCallback(()=>{
     passwordRef.current?.select()  //to select the text in password label
-    passwordRef.current?.setSelectionRange(0,15);  //to select the text in password label in a range
+    // passwordRef.current?.setSelectionRange(0,15);  //to select the text in password label in a range
     window.navigator.clipboard.writeText(password) //to copy the password
   },[password])
 
   useEffect(()=>passwordGenerator(),[length,numberAllowed,charAllowed,passwordGenerator])
 
   return (
-    <>
-  
+    
+      <div
+        className="w-full flex justify-center  items-center h-screen  bg-cover bg-no-repeat  "
+        style={{
+            backgroundImage: `url(' https://plus.unsplash.com/premium_photo-1687572821942-d6f30f6b125d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8aGFja2VyfGVufDB8fDB8fHww0')`, }}>
+
       <div className=' w-auto max-w-screen-md bg-gray-700 rounded-xl py-4 my-8 mx-auto px-4 text-orange-500'>
         <h1 className="text-3xl text-white text-center mb-3 ">PASSWORD GENERATOR</h1>
 
@@ -79,7 +83,7 @@ function App() {
           
         </div>
       </div>
-    </>
+    </div>
   )
 }
 
